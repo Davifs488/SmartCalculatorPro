@@ -1,0 +1,18 @@
+smart-calculator/
+
+├── index.html
+├── README.md
+├── package.json      (quando entrarmos no Node.js)
+├── assets/
+│   ├── css/
+│   │   └── style.css
+│   ├── js/
+│   │   ├── script.js
+│   │   ├── utils.js
+│   │   └── storage.js
+│   ├── img/
+│   └── icons/
+├── docs/
+│   ├── telas/
+│   └── versoes/
+└── LICENSE

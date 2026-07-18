@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Smart Calculator Pro</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+
+    <header>
+
+        <div class="logo">
+
+            <h1>🧮 Smart Calculator Pro</h1>
+
+            <p>Calculadora Inteligente para Empresas</p>
+
+        </div>
+
+    </header>
+
+    <!-- ================= MAIN ================= -->
+
+    <main>
+
+        <div class="container">
+
+            <section class="calculadora">
+
+                <h2>Calculadora</h2>
+
+                <label>Número 1</label>
+
+                <input
+                    type="number"
+                    id="numero1"
+                    placeholder="Digite o primeiro número">
+
+                <label>Número 2</label>
+
+                <input
+                    type="number"
+                    id="numero2"
+                    placeholder="Digite o segundo número">
+
+                <label>Resultado</label>
+
+                <input
+                    type="text"
+                    id="resultado"
+                    readonly
+                    placeholder="Resultado aparecerá aqui">
+
+                <div class="botoes">
+
+                    <button id="somar">+</button>
+
+                    <button id="subtrair">−</button>
+
+                    <button id="multiplicar">×</button>
+
+                    <button id="dividir">÷</button>
+
+                </div>
+
+                <button class="limpar" id="limpar">
+
+                    Limpar
+
+                </button>
+
+            </section>
+
+            <!-- HISTÓRICO -->
+
+            <section class="historico">
+
+                <h2>Histórico</h2>
+
+                <div id="listaHistorico">
+
+                    <p>Nenhuma operação realizada.</p>
+
+                </div>
+
+            </section>
+
+        </div>
+
+    </main>
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <p>
+
+            © 2026 Smart Solutions
+
+        </p>
+
+        <p>
+
+            Versão 1.0.0
+
+        </p>
+
+        <p>
+
+            Desenvolvido por Davi F. Silva
+
+        </p>
+
+    </footer>
+
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>
