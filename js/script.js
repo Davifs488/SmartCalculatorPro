@@ -38,15 +38,25 @@ function obterValores() {
 
 }
 
-function adicionarHistorico(texto) {
+function adicionarHistorico(operacao) {
 
-    if (historico.innerHTML.includes("Nenhuma operação")) {
+    const agora = new Date();
 
-        historico.innerHTML = "";
+    const data = agora.toLocaleDateString("pt-BR");
 
-    }
+    const hora = agora.toLocaleTimeString("pt-BR");
 
-    historico.innerHTML += `<p>${texto}</p>`;
+    const item = document.createElement("div");
+
+    item.classList.add("itemHistorico");
+
+    item.innerHTML = `
+        <strong>${data} ${hora}</strong><br>
+        ${operacao}
+        <hr>
+    `;
+
+    historico.prepend(item);
 
 }
 

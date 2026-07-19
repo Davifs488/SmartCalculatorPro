@@ -284,3 +284,36 @@ header h1{
 }
 
 }
+
+/*====================== complemento ============= */
+.itemHistorico{
+
+    padding:12px;
+
+    margin-bottom:12px;
+
+    border-radius:8px;
+
+    background:#f8fafc;
+
+    border-left:5px solid #2563eb;
+
+}
+
+.itemHistorico strong{
+
+    color:#1e3c72;
+
+    font-size:13px;
+
+}
+
+.itemHistorico hr{
+
+    margin-top:10px;
+
+    border:none;
+
+    border-top:1px solid #ddd;
+
+}
