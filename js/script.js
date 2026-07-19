@@ -39,7 +39,8 @@ function obterValores() {
 }
 
 function adicionarHistorico(operacao) {
-
+//historico.prepend(item);
+salvarHistorico();
     const agora = new Date();
 
     const data = agora.toLocaleDateString("pt-BR");
@@ -139,6 +140,30 @@ function limpar() {
 // ===============================
 // EVENTOS
 // ===============================
+
+function salvarHistorico() {
+
+    localStorage.setItem(
+        "historicoCalculadora",
+        historico.innerHTML
+    );
+
+}
+
+function carregarHistorico() {
+
+    const dados = localStorage.getItem("historicoCalculadora");
+
+    if (dados) {
+
+        historico.innerHTML = dados;
+
+    }
+
+}
+
+carregarHistorico();
+
 
 btnSomar.addEventListener("click", somar);
 
