@@ -4,7 +4,7 @@ SMART CALCULATOR PRO
 Empresa: Smart Solutions
 
 Arquivo: style.css
-Versão: 1.0.0
+Versão: 1.1.0
 Autor: Davi F. Silva
 =========================================
 */
@@ -251,6 +251,38 @@ input:focus{
 
 }
 
+/* ================= BOTÃO LIMPAR HISTÓRICO ================= */
+
+.btnHistorico{
+
+    margin-top:20px;
+
+    width:100%;
+
+    padding:16px;
+
+    border:none;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    background:#ef4444;
+
+    color:white;
+
+    font-size:16px;
+
+    transition:.3s;
+
+}
+
+.btnHistorico:hover{
+
+    background:#dc2626;
+
+}
+
 /* ================= FOOTER ================= */
 
 footer{
@@ -280,6 +312,12 @@ footer{
 header h1{
 
     font-size:28px;
+
+}
+
+.botoes{
+
+    grid-template-columns:repeat(2,1fr);
 
 }
 

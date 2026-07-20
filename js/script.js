@@ -4,7 +4,7 @@ SMART CALCULATOR PRO
 Empresa: Smart Solutions
 
 Arquivo: script.js
-Versão: 1.0.0
+Versão: 1.1.0
 Autor: Davi F. Silva
 =========================================
 */
@@ -24,6 +24,7 @@ const btnDividir = document.getElementById("dividir");
 const btnLimpar = document.getElementById("limpar");
 
 const historico = document.getElementById("listaHistorico");
+const btnLimparHistorico = document.getElementById("btnLimparHistorico");
 
 // ===============================
 // FUNÇÕES
@@ -39,8 +40,7 @@ function obterValores() {
 }
 
 function adicionarHistorico(operacao) {
-//historico.prepend(item);
-salvarHistorico();
+
     const agora = new Date();
 
     const data = agora.toLocaleDateString("pt-BR");
@@ -59,6 +59,14 @@ salvarHistorico();
 
     historico.prepend(item);
 
+    // Remove a mensagem de "nenhuma operação"
+    const mensagem = historico.querySelector("p");
+    if (mensagem) {
+        mensagem.remove();
+    }
+
+    salvarHistorico();
+
 }
 
 function mostrarResultado(valor) {
@@ -75,6 +83,11 @@ function somar() {
 
     const { n1, n2 } = obterValores();
 
+    if (numero1.value === "" || numero2.value === "") {
+        resultado.value = "Digite os números!";
+        return;
+    }
+
     const total = n1 + n2;
 
     mostrarResultado(total);
@@ -86,6 +99,11 @@ function somar() {
 function subtrair() {
 
     const { n1, n2 } = obterValores();
+
+    if (numero1.value === "" || numero2.value === "") {
+        resultado.value = "Digite os números!";
+        return;
+    }
 
     const total = n1 - n2;
 
@@ -99,6 +117,11 @@ function multiplicar() {
 
     const { n1, n2 } = obterValores();
 
+    if (numero1.value === "" || numero2.value === "") {
+        resultado.value = "Digite os números!";
+        return;
+    }
+
     const total = n1 * n2;
 
     mostrarResultado(total);
@@ -111,9 +134,14 @@ function dividir() {
 
     const { n1, n2 } = obterValores();
 
+    if (numero1.value === "" || numero2.value === "") {
+        resultado.value = "Digite os números!";
+        return;
+    }
+
     if (n2 === 0) {
 
-        alert("Não é possível dividir por zero.");
+        resultado.value = "Erro: Divisão por zero";
 
         return;
 
@@ -123,7 +151,7 @@ function dividir() {
 
     mostrarResultado(total);
 
-    adicionarHistorico(`${n1} ÷ ${n2} = ${total}`);
+    adicionarHistorico(`${n1} ÷ ${n2} = ${total.toFixed(5)}`);
 
 }
 
@@ -138,7 +166,7 @@ function limpar() {
 }
 
 // ===============================
-// EVENTOS
+// HISTÓRICO
 // ===============================
 
 function salvarHistorico() {
@@ -162,8 +190,19 @@ function carregarHistorico() {
 
 }
 
+function limparHistorico() {
+
+    historico.innerHTML = "<p>Nenhuma operação realizada.</p>";
+
+    localStorage.removeItem("historicoCalculadora");
+
+}
+
 carregarHistorico();
 
+// ===============================
+// EVENTOS
+// ===============================
 
 btnSomar.addEventListener("click", somar);
 
@@ -174,3 +213,5 @@ btnMultiplicar.addEventListener("click", multiplicar);
 btnDividir.addEventListener("click", dividir);
 
 btnLimpar.addEventListener("click", limpar);
+
+btnLimparHistorico.addEventListener("click", limparHistorico);
