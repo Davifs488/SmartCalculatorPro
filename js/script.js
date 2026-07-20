@@ -22,13 +22,31 @@ const btnSubtrair = document.getElementById("subtrair");
 const btnMultiplicar = document.getElementById("multiplicar");
 const btnDividir = document.getElementById("dividir");
 const btnLimpar = document.getElementById("limpar");
-
+const btnCopiar = document.getElementById("copiar");
 const historico = document.getElementById("listaHistorico");
 const btnLimparHistorico = document.getElementById("btnLimparHistorico");
 
 // ===============================
 // FUNÇÕES
 // ===============================
+
+function copiarResultado(){
+
+    if(resultado.value === ""){
+
+        alert("Não existe resultado para copiar.");
+
+        return;
+
+    }
+
+
+    navigator.clipboard.writeText(resultado.value);
+
+
+    alert("Resultado copiado com sucesso!");
+
+}
 
 function obterValores() {
 
@@ -215,3 +233,45 @@ btnDividir.addEventListener("click", dividir);
 btnLimpar.addEventListener("click", limpar);
 
 btnLimparHistorico.addEventListener("click", limparHistorico);
+
+btnCopiar.addEventListener("click", copiarResultado);
+
+document.addEventListener("keydown", function(event){
+
+
+    if(event.key === "Enter"){
+
+        somar();
+
+    }
+
+
+    if(event.key === "+"){
+
+        somar();
+
+    }
+
+
+    if(event.key === "-"){
+
+        subtrair();
+
+    }
+
+
+    if(event.key === "*"){
+
+        multiplicar();
+
+    }
+
+
+    if(event.key === "/"){
+
+        dividir();
+
+    }
+
+
+});
