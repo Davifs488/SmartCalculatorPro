@@ -25,7 +25,7 @@ const btnLimpar = document.getElementById("limpar");
 const btnCopiar = document.getElementById("copiar");
 const historico = document.getElementById("listaHistorico");
 const btnLimparHistorico = document.getElementById("btnLimparHistorico");
-
+const btnTema = document.getElementById("btnTema");
 // ===============================
 // FUNÇÕES
 // ===============================
@@ -97,37 +97,6 @@ function adicionarHistorico(operacao){
 
 }
 
-/*
-function adicionarHistorico(operacao) {
-
-    const agora = new Date();
-
-    const data = agora.toLocaleDateString("pt-BR");
-
-    const hora = agora.toLocaleTimeString("pt-BR");
-
-    const item = document.createElement("div");
-
-    item.classList.add("itemHistorico");
-
-    item.innerHTML = `
-        <strong>${data} ${hora}</strong><br>
-        ${operacao}
-        <hr>
-    `;
-
-    historico.prepend(item);
-
-    // Remove a mensagem de "nenhuma operação"
-    const mensagem = historico.querySelector("p");
-    if (mensagem) {
-        mensagem.remove();
-    }
-
-    salvarHistorico();
-
-}
-*/
 function removerHistorico(index){
 
 
@@ -280,7 +249,6 @@ function carregarHistorico(){
     });
 
 }
-//////////////////////////////////////
 function criarItemHistorico(item,index){
 
 
@@ -309,30 +277,6 @@ function criarItemHistorico(item,index){
 
 }
 
-/*
-function salvarHistorico() {
-
-    localStorage.setItem(
-        "historicoCalculadora",
-        historico.innerHTML
-    );
-
-}
-
-function carregarHistorico() {
-
-    const dados = localStorage.getItem("historicoCalculadora");
-
-    if (dados) {
-
-        historico.innerHTML = dados;
-
-    }
-
-}
-*/
-
-//////////////
 function limparHistorico(){
 
     listaOperacoes = [];
@@ -345,18 +289,6 @@ function limparHistorico(){
 
 }
 
-//////////////
-/*
-function limparHistorico() {
-
-    historico.innerHTML = "<p>Nenhuma operação realizada.</p>";
-
-    localStorage.removeItem("historicoCalculadora");
-
-}
-
-carregarHistorico();
-*/
 // ===============================
 // EVENTOS
 // ===============================
@@ -411,6 +343,79 @@ document.addEventListener("keydown", function(event){
         dividir();
 
     }
+    //////////
+    // ===============================
+// TEMA ESCURO
+// ===============================
+
+
+function carregarTema(){
+
+
+    const tema =
+    localStorage.getItem("tema");
+
+
+    if(tema === "dark"){
+
+        document.body.classList.add("dark");
+
+        btnTema.innerHTML =
+        "☀️ Modo Claro";
+
+    }
+
+
+}
+
+
+
+function alterarTema(){
+
+
+    document.body.classList.toggle("dark");
+
+
+    if(document.body.classList.contains("dark")){
+
+
+        localStorage.setItem(
+            "tema",
+            "dark"
+        );
+
+
+        btnTema.innerHTML =
+        "☀️ Modo Claro";
+
+
+    }else{
+
+
+        localStorage.setItem(
+            "tema",
+            "light"
+        );
+
+
+        btnTema.innerHTML =
+        "🌙 Modo Escuro";
+
+
+    }
+
+
+}
+
+
+
+btnTema.addEventListener(
+    "click",
+    alterarTema
+);
+
+
+carregarTema();
 
 
 });

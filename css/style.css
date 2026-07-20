@@ -425,3 +425,110 @@ header h1{
     background:#991b1b;
 
 }
+/* ===============================
+   MODO ESCURO
+================================ */
+
+
+body.dark{
+
+    background:#020617;
+
+}
+
+
+body.dark header{
+
+    background:#020617;
+
+}
+
+
+body.dark .calculadora,
+body.dark .historico{
+
+    background:#1e293b;
+
+    color:white;
+
+}
+
+
+body.dark h2{
+
+    color:#38bdf8;
+
+}
+
+
+body.dark label{
+
+    color:white;
+
+}
+
+
+body.dark input{
+
+    background:#0f172a;
+
+    color:white;
+
+    border-color:#334155;
+
+}
+
+
+body.dark #listaHistorico{
+
+    background:#0f172a;
+
+    border-color:#334155;
+
+}
+
+
+body.dark .itemHistorico{
+
+    background:#1e293b;
+
+}
+
+
+body.dark footer{
+
+    background:#020617;
+
+}
+
+
+
+/* BOTÃO TEMA */
+
+
+.btnTema{
+
+    margin-top:20px;
+
+    padding:12px 20px;
+
+    border:none;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    background:#2563eb;
+
+    color:white;
+
+    font-size:16px;
+
+}
+
+
+.btnTema:hover{
+
+    background:#1d4ed8;
+
+}
