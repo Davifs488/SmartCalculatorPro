@@ -57,6 +57,47 @@ function obterValores() {
 
 }
 
+function adicionarHistorico(operacao){
+
+
+    const agora = new Date();
+
+
+    const registro = {
+
+        data:
+        agora.toLocaleDateString("pt-BR")
+        +" "
+        +
+        agora.toLocaleTimeString("pt-BR"),
+
+
+        operacao:operacao
+
+    };
+
+
+    listaOperacoes.unshift(registro);
+
+
+
+    if(listaOperacoes.length > 20){
+
+        listaOperacoes.pop();
+
+    }
+
+
+
+    salvarHistorico();
+
+
+    carregarHistorico();
+
+
+}
+
+/*
 function adicionarHistorico(operacao) {
 
     const agora = new Date();
@@ -86,7 +127,20 @@ function adicionarHistorico(operacao) {
     salvarHistorico();
 
 }
+*/
+function removerHistorico(index){
 
+
+    listaOperacoes.splice(index,1);
+
+
+    salvarHistorico();
+
+
+    carregarHistorico();
+
+
+}
 function mostrarResultado(valor) {
 
     resultado.value = valor;
@@ -187,6 +241,75 @@ function limpar() {
 // HISTÓRICO
 // ===============================
 
+let listaOperacoes = JSON.parse(
+    localStorage.getItem("historicoCalculadora")
+) || [];
+
+
+
+function salvarHistorico(){
+
+    localStorage.setItem(
+        "historicoCalculadora",
+        JSON.stringify(listaOperacoes)
+    );
+
+}
+
+
+
+function carregarHistorico(){
+
+    historico.innerHTML = "";
+
+
+    if(listaOperacoes.length === 0){
+
+        historico.innerHTML =
+        "<p>Nenhuma operação realizada.</p>";
+
+        return;
+
+    }
+
+
+    listaOperacoes.forEach((item,index)=>{
+
+        criarItemHistorico(item,index);
+
+    });
+
+}
+//////////////////////////////////////
+function criarItemHistorico(item,index){
+
+
+    const div = document.createElement("div");
+
+    div.classList.add("itemHistorico");
+
+
+    div.innerHTML = `
+
+        <strong>${item.data}</strong><br>
+
+        ${item.operacao}
+
+        <br><br>
+
+        <button onclick="removerHistorico(${index})">
+            🗑 Excluir
+        </button>
+
+    `;
+
+
+    historico.appendChild(div);
+
+
+}
+
+/*
 function salvarHistorico() {
 
     localStorage.setItem(
@@ -207,7 +330,23 @@ function carregarHistorico() {
     }
 
 }
+*/
 
+//////////////
+function limparHistorico(){
+
+    listaOperacoes = [];
+
+    localStorage.removeItem(
+        "historicoCalculadora"
+    );
+
+    carregarHistorico();
+
+}
+
+//////////////
+/*
 function limparHistorico() {
 
     historico.innerHTML = "<p>Nenhuma operação realizada.</p>";
@@ -217,7 +356,7 @@ function limparHistorico() {
 }
 
 carregarHistorico();
-
+*/
 // ===============================
 // EVENTOS
 // ===============================

@@ -400,3 +400,28 @@ header h1{
     background:#15803d;
 
 }
+
+.itemHistorico button{
+
+    margin-top:10px;
+
+    background:#dc2626;
+
+    color:white;
+
+    border:none;
+
+    padding:8px 15px;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+}
+
+
+.itemHistorico button:hover{
+
+    background:#991b1b;
+
+}
