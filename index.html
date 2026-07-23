@@ -5,12 +5,15 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+ 
     <title>Smart Calculator Pro</title>
 
     <!-- CSS -->
     <link rel="stylesheet" href="css/style.css">
+    <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#1e3c72">
 
+<link rel="icon" href="icons/icon-192.png">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
 
@@ -104,6 +107,11 @@
 
                 <h2>Histórico</h2>
 
+                <input
+    type="text"
+    id="pesquisarHistorico"
+    placeholder="🔎 Pesquisar operação...">
+
                 <div id="listaHistorico">
 
                     <p>Nenhuma operação realizada.</p>
@@ -115,6 +123,56 @@
                 </button>
 
             </section>
+
+            <!-- ================= DASHBOARD ================= -->
+
+<section class="dashboard">
+
+    <h2>📊 Estatísticas</h2>
+
+
+    <div class="cards">
+
+
+        <div class="card">
+
+            <h3>Total de Cálculos</h3>
+
+            <p id="totalCalculos">
+                0
+            </p>
+
+        </div>
+
+
+
+        <div class="card">
+
+            <h3>Operação Mais Usada</h3>
+
+            <p id="operacaoMaisUsada">
+                Nenhuma
+            </p>
+
+        </div>
+
+
+
+        <div class="card">
+
+            <h3>Último Cálculo</h3>
+
+            <p id="ultimoCalculo">
+                Nenhum
+            </p>
+
+        </div>
+
+
+    </div>
+
+
+</section>
 
         </div>
 
